@@ -1,8 +1,8 @@
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 
 from langchain_google_vertexai import VertexAIEmbeddings
-from langchain_google_vertexai import ChatVertexAI, VertexAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_google_vertexai import ChatVertexAI, VertexAI
 import os
 
 PROJECT_ID = os.getenv("PROJECT_ID")

@@ -4,9 +4,6 @@ from llama_index.embeddings.vertex import VertexTextEmbedding
 from llama_index.llms.vertex import Vertex
 import os
 
-PROJECT_ID = os.getenv("PROJECT_ID")
-REGION = "us-central1"
-
 credentials, project_id = default()
 
 # Using Llamaindex's classes
@@ -21,5 +18,10 @@ index = VectorStoreIndex.from_documents(
     documents,
 )
 query_engine = index.as_query_engine()
+retriever = index.as_retriever()
+# Calls only embedding model to match nodes to query
+nodes = retriever.retrieve("Fetches the contents")
+print(nodes)
+# Calls LLM over retrieved nodes
 response = query_engine.query("Summarize the contents")
 print(response)
