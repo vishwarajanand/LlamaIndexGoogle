@@ -1,0 +1,11 @@
+llama-index
+langchain-google-vertexai
+langchain-google-genai
+# google-cloud-alloydb-connector[pg8000]
+# langchain-google-vertexai
+# langchain_google_alloydb_pg
+# langchain
+# llama-index-embeddings-langchain
+langchain
+langchain-community
+# llama-index-llms-langchain
