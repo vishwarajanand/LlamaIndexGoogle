@@ -6,6 +6,8 @@ langchain-google-genai
 # langchain_google_alloydb_pg
 # langchain
 # llama-index-embeddings-langchain
+llama-index-embeddings-vertex
+llama-index-llms-vertex
 langchain
 langchain-community
 # llama-index-llms-langchain

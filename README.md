@@ -20,4 +20,6 @@ ${VENV}/bin/python scriptXX.py # replace XX with num
 
 ## Script details
 
-script1. Defines a way to use Embedding APIs
+script1. Defines a way to use Embedding APIs from LC's classes via llama index bride
+script2. Defines a way to use llama index classes for vertex models for embeddings & LLMs
+
