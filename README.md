@@ -22,4 +22,6 @@ ${VENV}/bin/python scriptXX.py # replace XX with num
 
 script1. Defines a way to use Embedding APIs from LC's classes via llama index bride
 script2. Defines a way to use llama index classes for vertex models for embeddings & LLMs
+script3. Defines a way to use llama index classes for vertex models without a global LLM
+script4. Defines a way to use Alloy DB for a vector store
 
