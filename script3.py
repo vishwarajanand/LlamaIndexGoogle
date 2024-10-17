@@ -12,7 +12,6 @@ embed_model = VertexTextEmbedding(
     credentials=credentials,
 )
 llm = Vertex(model="gemini-pro", credentials=credentials)
-# Settings.llm = Vertex(model="gemini-pro", credentials=credentials)
 
 documents = SimpleDirectoryReader(".").load_data()
 index = VectorStoreIndex.from_documents(
