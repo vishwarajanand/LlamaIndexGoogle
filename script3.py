@@ -7,7 +7,7 @@ import os
 credentials, project_id = default()
 
 # Using Llamaindex's classes
-Settings.embed_model = VertexTextEmbedding(
+embed_model = VertexTextEmbedding(
     model_name="textembedding-gecko@001",
     credentials=credentials,
 )
@@ -17,6 +17,7 @@ llm = Vertex(model="gemini-pro", credentials=credentials)
 documents = SimpleDirectoryReader(".").load_data()
 index = VectorStoreIndex.from_documents(
     documents,
+    embed_model=embed_model,
 )
 query_engine = index.as_query_engine(llm)
 retriever = index.as_retriever()
