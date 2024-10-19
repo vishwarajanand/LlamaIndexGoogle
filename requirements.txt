@@ -1,7 +1,8 @@
 llama-index
 langchain-google-vertexai
 langchain-google-genai
-# google-cloud-alloydb-connector[pg8000]
+google-cloud-alloydb-connector[pg8000]
+llama-index-vector-stores-postgres
 # langchain-google-vertexai
 # langchain_google_alloydb_pg
 # langchain
