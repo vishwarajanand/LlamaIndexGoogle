@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "llama-index-vector-stores-cloud-sql-pg"
+version = "0.1.0"
+description = ""
+authors = ["Vishwaraj Anand <vishwarajanand@google.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
