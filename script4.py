@@ -70,6 +70,7 @@ vector_store = PGVectorStore.from_params(
     create_engine_kwargs={
         "sync": {"creator": getSyncConn},
         "not_sync": {"async_creator": getAsyncConn},
+        # "async_creator": getAsyncConn,
     },
     # table_name=settings.table_name,
     embed_dim=768,
@@ -82,6 +83,8 @@ vector_store = PGVectorStore.from_params(
 )
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 documents = SimpleDirectoryReader(".").load_data()
+
+# index = VectorStoreIndex.from_vector_store(vector_store=vector_store)
 
 index = VectorStoreIndex.from_documents(
     documents,
