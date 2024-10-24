@@ -37,7 +37,7 @@ if TYPE_CHECKING:
 
 T = TypeVar("T")
 
-USER_AGENT = "langchain-google-cloud-sql-pg-python/" + __version__
+USER_AGENT = "llamaindex-google-cloud-sql-pg-python/" + __version__
 
 
 async def _get_iam_principal_email(
@@ -409,8 +409,8 @@ class PostgresEngine:
         content_column: str = "content",
         embedding_column: str = "embedding",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
-        id_column: Union[str, Column] = "langchain_id",
+        metadata_json_column: str = "llamaindex_metadata",
+        id_column: Union[str, Column] = "llamaindex_id",
         overwrite_existing: bool = False,
         store_metadata: bool = True,
     ) -> None:
@@ -429,9 +429,9 @@ class PostgresEngine:
             metadata_columns (List[Column]): A list of Columns to create for custom
                 metadata. Default: []. Optional.
             metadata_json_column (str): The column to store extra metadata in JSON format.
-                Default: "langchain_metadata". Optional.
+                Default: "llamaindex_metadata". Optional.
             id_column (Union[str, Column]) : Column to store ids.
-                Default: "langchain_id" column name with data type UUID. Optional.
+                Default: "llamaindex_id" column name with data type UUID. Optional.
             overwrite_existing (bool): Whether to drop existing table. Default: False.
             store_metadata (bool): Whether to store metadata in the table.
                 Default: True.
@@ -476,8 +476,8 @@ class PostgresEngine:
         content_column: str = "content",
         embedding_column: str = "embedding",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
-        id_column: Union[str, Column] = "langchain_id",
+        metadata_json_column: str = "llamaindex_metadata",
+        id_column: Union[str, Column] = "llamaindex_id",
         overwrite_existing: bool = False,
         store_metadata: bool = True,
     ) -> None:
@@ -496,9 +496,9 @@ class PostgresEngine:
             metadata_columns (List[Column]): A list of Columns to create for custom
                 metadata. Default: []. Optional.
             metadata_json_column (str): The column to store extra metadata in JSON format.
-                Default: "langchain_metadata". Optional.
+                Default: "llamaindex_metadata". Optional.
             id_column (Union[str, Column]) : Column to store ids.
-                Default: "langchain_id" column name with data type UUID. Optional.
+                Default: "llamaindex_id" column name with data type UUID. Optional.
             overwrite_existing (bool): Whether to drop existing table. Default: False.
             store_metadata (bool): Whether to store metadata in the table.
                 Default: True.
@@ -526,8 +526,8 @@ class PostgresEngine:
         content_column: str = "content",
         embedding_column: str = "embedding",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
-        id_column: Union[str, Column] = "langchain_id",
+        metadata_json_column: str = "llamaindex_metadata",
+        id_column: Union[str, Column] = "llamaindex_id",
         overwrite_existing: bool = False,
         store_metadata: bool = True,
     ) -> None:
@@ -546,9 +546,9 @@ class PostgresEngine:
             metadata_columns (List[Column]): A list of Columns to create for custom
                 metadata. Default: []. Optional.
             metadata_json_column (str): The column to store extra metadata in JSON format.
-                Default: "langchain_metadata". Optional.
+                Default: "llamaindex_metadata". Optional.
             id_column (Union[str, Column]) : Column to store ids.
-                Default: "langchain_id" column name with data type UUID. Optional.
+                Default: "llamaindex_id" column name with data type UUID. Optional.
             overwrite_existing (bool): Whether to drop existing table. Default: False.
             store_metadata (bool): Whether to store metadata in the table.
                 Default: True.
@@ -634,7 +634,7 @@ class PostgresEngine:
         schema_name: str = "public",
         content_column: str = "page_content",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
+        metadata_json_column: str = "llamaindex_metadata",
         store_metadata: bool = True,
     ) -> None:
         query = f"""CREATE TABLE "{schema_name}"."{table_name}"(
@@ -643,7 +643,7 @@ class PostgresEngine:
         for column in metadata_columns:
             nullable = "NOT NULL" if not column.nullable else ""
             query += f',\n"{column.name}" {column.data_type} {nullable}'
-        metadata_json_column = metadata_json_column or "langchain_metadata"
+        metadata_json_column = metadata_json_column or "llamaindex_metadata"
         if store_metadata:
             query += f',\n"{metadata_json_column}" JSON'
         query += "\n);"
@@ -658,11 +658,11 @@ class PostgresEngine:
         schema_name: str = "public",
         content_column: str = "page_content",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
+        metadata_json_column: str = "llamaindex_metadata",
         store_metadata: bool = True,
     ) -> None:
         """
-        Create a table for saving of langchain documents.
+        Create a table for saving of llamaindex documents.
 
         Args:
             table_name (str): The PgSQL database table name.
@@ -673,7 +673,7 @@ class PostgresEngine:
             metadata_columns (List[sqlalchemy.Column]): A list of SQLAlchemy Columns
                 to create for custom metadata. Optional.
             metadata_json_column (str): The column to store extra metadata in JSON format.
-                Default: "langchain_metadata". Optional.
+                Default: "llamaindex_metadata". Optional.
             store_metadata (bool): Whether to store extra metadata in a metadata column
                 if not described in 'metadata' field list (Default: True).
 
@@ -697,11 +697,11 @@ class PostgresEngine:
         schema_name: str = "public",
         content_column: str = "page_content",
         metadata_columns: List[Column] = [],
-        metadata_json_column: str = "langchain_metadata",
+        metadata_json_column: str = "llamaindex_metadata",
         store_metadata: bool = True,
     ) -> None:
         """
-        Create a table for saving of langchain documents.
+        Create a table for saving of llamaindex documents.
 
         Args:
             table_name (str): The PgSQL database table name.
@@ -712,7 +712,7 @@ class PostgresEngine:
             metadata_columns (List[sqlalchemy.Column]): A list of SQLAlchemy Columns
                 to create for custom metadata. Optional.
             metadata_json_column (str): The column to store extra metadata in JSON format.
-                Default: "langchain_metadata". Optional.
+                Default: "llamaindex_metadata". Optional.
             store_metadata (bool): Whether to store extra metadata in a metadata column
                 if not described in 'metadata' field list (Default: True).
 
@@ -765,3 +765,8 @@ class PostgresEngine:
             )
 
         return metadata.tables[f"{schema_name}.{table_name}"]
+
+    async def aexecute_query(self, query: str) -> None:
+        async with self._pool.connect() as conn:
+            await conn.execute(text(query))
+            await conn.commit()

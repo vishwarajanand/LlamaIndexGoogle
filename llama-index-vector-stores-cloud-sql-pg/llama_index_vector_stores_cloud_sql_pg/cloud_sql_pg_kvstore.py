@@ -53,8 +53,8 @@ def get_data_model(
     )
 
 
-class AlloyDBKVStore(BaseKVStore):
-    """AlloyDB Key-Value store.
+class CloudSQLPostgresKVStore(BaseKVStore):
+    """CloudSQL for Postgres Key-Value store.
 
     Args:
         connection_string (str): psycopg2 connection string
